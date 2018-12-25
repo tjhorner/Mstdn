@@ -16,6 +16,7 @@ export interface Config {
     always_on_top: boolean;
     hide_menu: boolean;
     normal_window: boolean;
+    show_dock_icon: boolean;
     zoom_factor: number;
     accounts: Account[];
     chromium_sandbox: boolean;
@@ -33,6 +34,7 @@ function makeDefaultConfig(): Config {
         always_on_top: false,
         hide_menu: false,
         normal_window: menubarBroken,
+        show_dock_icon: true,
         zoom_factor: 0.9,
         chromium_sandbox: true,
         accounts: [{

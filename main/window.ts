@@ -43,6 +43,10 @@ export default class Window {
             browser.setMenu(Menu.getApplicationMenu());
         }
 
+        // if (IS_DARWIN) {
+        //     app.dock.hide();
+        // }
+
         browser.webContents.on('will-navigate', (e, url) => {
             const host = hostUrl(this.account);
             if (url.startsWith(host)) {
@@ -127,9 +131,11 @@ export default class Window {
         if (this.menubar) {
             if (this.browser.isFocused()) {
                 log.debug('Toggle window: shown -> hidden');
+                app.hide();
                 this.menubar.hideWindow();
             } else {
                 log.debug('Toggle window: hidden -> shown');
+                app.show();
                 this.menubar.showWindow();
             }
         } else {
@@ -246,7 +252,7 @@ function startMenuBar(account: Account, config: Config, bar: Menubar.MenubarApp 
             tooltip: 'Mstdn',
             autoHideMenuBar: !!config.hide_menu,
             show: false,
-            showDockIcon: true,
+            showDockIcon: config.show_dock_icon,
             webPreferences: {
                 nodeIntegration: false,
                 sandbox: sandboxFlag(config, account),

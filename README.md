@@ -128,6 +128,12 @@ window application.  If the menu bar behavior does not work for you, please set
 this value to `true` to avoid it.  Default value is `false` on macOS or Linux,
 `true` on Windows because window position is broken in some versions of Windows.
 
+### `show_dock_icon`
+
+If you are on macOS, you can use this option to hide the icon from your Dock. This
+prevents the window from showing up in the application switcher (⌘+TAB) menu. Useful
+if you keep accidentally switching to it after you close the menu.
+
 ### `hide_menu`
 
 When this value is set to `true`, the application will be launched with the

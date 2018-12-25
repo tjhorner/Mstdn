@@ -43,10 +43,6 @@ export default class Window {
             browser.setMenu(Menu.getApplicationMenu());
         }
 
-        // if (IS_DARWIN) {
-        //     app.dock.hide();
-        // }
-
         browser.webContents.on('will-navigate', (e, url) => {
             const host = hostUrl(this.account);
             if (url.startsWith(host)) {
